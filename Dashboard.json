@@ -57,6 +57,10 @@
         "lineWidth": 1,
         "tooltip": {
           "mode": "single"
+        },
+        "xAxis": {
+          "mode": "time",
+          "value": "timestamp"
         }
       },
       "pluginVersion": "8.1.5",
@@ -89,4 +93,3 @@
   "uid": null,
   "version": 0
 }
-
