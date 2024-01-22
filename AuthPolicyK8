@@ -1,0 +1,41 @@
+# Values for the generic-service chart
+generic-service:
+  # Name of the service
+  name: my-service
+  # Labels for the service
+  labels:
+    app: my-service
+    env: dev
+    owner: me
+
+# Values for the istio subchart
+istio:
+  # Enable or disable istio authorization
+  authorization:
+    enabled: true
+    # Define the policies for the authorization
+    policies:
+      # Policy name
+      allow-get-post-ns1:
+        # Action to take, either ALLOW or DENY
+        action: ALLOW
+        # Rules for the policy
+        rules:
+          - from:
+              - source:
+                  namespaces: ["ns1"] # Allow requests from namespace ns1
+            to:
+              - operation:
+                  methods: ["GET", "POST"] # Allow GET and POST methods
+      # Another policy name
+      allow-get-post-ns2:
+        # Action to take, either ALLOW or DENY
+        action: ALLOW
+        # Rules for the policy
+        rules:
+          - from:
+              - source:
+                  namespaces: ["ns2"] # Allow requests from namespace ns2
+            to:
+              - operation:
+                  methods: ["GET", "POST"] # Allow GET and POST methods
